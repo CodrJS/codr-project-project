@@ -354,10 +354,10 @@
   dependencies:
     winston "^3.8.2"
 
-"@codrjs/models@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@codrjs/models/-/models-1.0.8.tgz#547c87c5f7f06a3e73d2bcee0b24597d79eb621b"
-  integrity sha512-U4W8Xar6BWSf+EIXl3PXpyfoWahlidW2nMjAF/E6jmnfzM+ouyJDewY5jITrUBavhhozCDaI4b3CbkrkIx9zkA==
+"@codrjs/models@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@codrjs/models/-/models-1.0.9.tgz#1effe130b7e97a749d57b861cbd95915378f41ad"
+  integrity sha512-QkRghbjNmdWxpTuLyw015pzSnmg6fRsK3vs3lSYV/B/2eBC0UaLd+BL0moAH0GKl6U1DDgnuV4LilG8RQYM4IQ==
   dependencies:
     "@casl/ability" "^6.3.3"
     "@codrjs/config" "^1.0.7"
