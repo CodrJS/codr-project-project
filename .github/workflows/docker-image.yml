@@ -29,6 +29,9 @@ jobs:
     needs: test
     # run only when code is compiling and tests are passing
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     # steps to perform in job
     steps:
