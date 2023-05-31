@@ -1,5 +1,5 @@
 import { IProject, Types, MongooseUtil } from "@codrjs/models";
-import { model, Schema } from "mongoose";
+import { model, Schema, SchemaTypes } from "mongoose";
 import {
   AccessibleFieldsModel,
   accessibleFieldsPlugin,
@@ -13,7 +13,7 @@ const ProjectSchema = new Schema<ProjectDocument>(
     name: { type: String, required: true },
     bgColorClass: { type: String, required: true },
     config: {
-      type: "ObjectId",
+      type: SchemaTypes.ObjectId,
       ref: "Config",
     },
     type: {
@@ -33,7 +33,11 @@ const ProjectSchema = new Schema<ProjectDocument>(
         isAnonymized: false,
       },
     },
-    slug: { type: String, required: true },
+    slug: {
+      type: String,
+      required: true,
+      index: true,
+    },
     createdAt: { type: String },
     updatedAt: { type: String },
   },

@@ -1,45 +1,46 @@
+import { MongooseUtil, Types } from "@codrjs/models";
 import type { OpenAPIV3_1 } from "openapi-types";
 
-const HealthSchema: OpenAPIV3_1.SchemaObject = {
-  title: "Metadata Schema",
+const ProjectEntitySchema: OpenAPIV3_1.SchemaObject = {
+  title: "Project Entity Schema",
+  allOf: [{ $ref: "#/components/schemas/BaseEntitySchema" }],
   properties: {
-    env: {
-      type: "string",
-      examples: ["dev", "qa", "stage", "prod"],
-      default: "dev",
-    },
-    version: {
-      type: "string",
-    },
-    name: {
-      type: "string",
-    },
-    node: {
+    name: { type: "string" },
+    bgColorClass: { type: "string" },
+    config: {
       type: "object",
       properties: {
-        env: {
-          type: "string",
-          examples: ["development", "production", "testing"],
-          default: "production",
-        },
-        version: {
-          type: "string",
-        },
-        modules: {
-          type: "object",
-        },
-        yarnVersion: {
-          type: "string",
-        },
+        $oid: { type: "string" },
       },
     },
-    docker: {
+    type: {
+      type: "string",
+      examples: Object.keys(Types.AnnotationTask),
+      default: Types.AnnotationTask.Tagging,
+    },
+    flags: {
       type: "object",
       properties: {
-        hostname: { type: "string" },
+        isPrivate: {
+          type: "boolean",
+          default: false,
+        },
+        isDeleted: {
+          type: "boolean",
+          default: false,
+        },
+        isAnonymized: {
+          type: "boolean",
+          default: false,
+        },
+      },
+      default: {
+        ...MongooseUtil.Flags.default,
+        isAnonymized: false,
       },
     },
+    slug: { type: "string" },
   },
 };
 
-export default HealthSchema;
+export default ProjectEntitySchema;
